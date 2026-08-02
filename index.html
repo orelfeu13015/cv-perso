@@ -288,10 +288,18 @@
       }
 
       .mission-head {
-        display: flex;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
         align-items: flex-start;
-        justify-content: space-between;
         gap: 18px;
+      }
+
+      .mission-chevron:focus-visible {
+        outline: 3px solid rgba(35, 99, 165, 0.28);
+        outline-offset: 3px;
+      }
+
+      .mission.is-open .mission-head {
         margin-bottom: 14px;
       }
 
@@ -323,15 +331,63 @@
       }
 
       .mission time {
-        flex: 0 0 auto;
         color: var(--blue);
         font-size: 0.83rem;
         font-weight: 750;
       }
 
+      .mission-meta {
+        display: flex;
+        min-width: 92px;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 9px;
+        text-align: right;
+      }
+
+      .mission-chevron {
+        padding: 0;
+        width: 34px;
+        height: 30px;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--blue);
+        background: var(--white);
+        cursor: pointer;
+        font: inherit;
+        transition:
+          border-color 160ms ease,
+          background 160ms ease;
+      }
+
+      .mission-chevron::before {
+        width: 8px;
+        height: 8px;
+        content: "";
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: translateY(-2px) rotate(45deg);
+        transition: transform 180ms ease;
+      }
+
+      .mission-chevron:hover {
+        border-color: #a9c7e3;
+        background: var(--pale);
+      }
+
+      .mission.is-open .mission-chevron::before {
+        transform: translateY(2px) rotate(225deg);
+      }
+
       .blocks {
         display: grid;
         gap: 12px;
+      }
+
+      .mission:not(.is-open) .blocks {
+        display: none;
       }
 
       .block {
@@ -472,11 +528,27 @@
           padding: 0 20px 20px;
         }
 
-        .mission-head,
         .footer .shell {
           align-items: flex-start;
           flex-direction: column;
           gap: 5px;
+        }
+
+        .mission-head {
+          gap: 10px;
+        }
+
+        .mission-identity {
+          align-items: flex-start;
+        }
+
+        .client-logo {
+          width: 68px;
+          height: 38px;
+        }
+
+        .mission-meta {
+          min-width: 74px;
         }
 
         .skills,
@@ -505,19 +577,19 @@
   <body>
     <header class="topbar">
       <div class="shell">
-        <a class="brand" href="#top">Cyril Gomez - Freelance</a>
+        <a class="brand" href="#top">Cyril Gomez</a>
         <nav><a href="#competences">Compétences</a><a href="#experiences">Expériences</a><a href="#formations">Formations</a></nav>
       </div>
     </header>
     <section class="hero" id="top">
       <div class="shell hero-grid">
         <div>
-          <p class="eyebrow">IT Business Analyst · Développeur</p>
+          <p class="eyebrow">Consultant IT - Freelance</p>
           <h1>Matérialiser un besoin en application concrète<br />Concevoir une expérience utilisateur agréable<br />Accompagner jusqu'à la mise en production</h1>
         </div>
         <aside class="contact-card">
           <div>
-            <strong>Freelance<br />Disponible à partir de janvier 2027</strong><a href="mailto:cyril.gomez13015@gmail.com">cyril.gomez13015@gmail.com</a><a href="tel:+33622534770">06 22 53 47 70</a
+            <strong>Disponible à partir de janvier 2027</strong><a href="mailto:cyril.gomez13015@gmail.com">cyril.gomez13015@gmail.com</a><a href="tel:+33622534770">06 22 53 47 70</a
             ><span>Rueil-Malmaison<br />Mobilité : Île-de-France</span>
           </div>
           <img src="photo.jpg" alt="Portrait de Cyril Gomez" />
@@ -583,7 +655,7 @@
               <div class="mission">
                 <div class="mission-head">
                   <div class="mission-identity"><img class="client-logo" src="assets/credit-agricole-assurances.png" alt="" /><div><h3>Crédit Agricole Assurances — Predica</h3><span class="mission-location">Paris</span></div></div>
-                  <time>1 an 9 mois</time>
+                  <div class="mission-meta"><time>1 an 9 mois</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Crédit Agricole Assurances"></button></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
@@ -620,7 +692,7 @@
               <div class="mission">
                 <div class="mission-head">
                   <div class="mission-identity"><img class="client-logo" src="assets/BNP-Paribas-logo.png" alt="" /><div><h3>BNP Paribas — BCEF IT</h3><span class="mission-location">Montreuil</span></div></div>
-                  <time>3 mois</time>
+                  <div class="mission-meta"><time>3 mois</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission BNP Paribas"></button></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
@@ -652,7 +724,7 @@
               <div class="mission">
                 <div class="mission-head">
                   <div class="mission-identity"><img class="client-logo" src="assets/Logo-Ministere-de-l-interieur.jpg" alt="" /><div><h3>Ministère de l'Intérieur - Direction du numérique</h3><span class="mission-location">Le Plessis-Robinson</span></div></div>
-                  <time>2 ans</time>
+                  <div class="mission-meta"><time>2 ans</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Direction du numérique"></button></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
@@ -676,7 +748,7 @@
               <div class="mission">
                 <div class="mission-head">
                   <div class="mission-identity"><img class="client-logo" src="assets/Logo-Ministere-de-l-interieur.jpg" alt="" /><div><h3>Ministère de l'Intérieur - Délégation à la sécurité routière</h3><span class="mission-location">Le Plessis-Robinson</span></div></div>
-                  <time>1 an</time>
+                  <div class="mission-meta"><time>1 an</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Délégation à la sécurité routière"></button></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
@@ -698,7 +770,7 @@
               <div class="mission">
                 <div class="mission-head">
                   <div class="mission-identity"><img class="client-logo" src="assets/Logo_cnsa.svg" alt="" /><div><h3>Caisse Nationale de Solidarité pour l'autonomie</h3><span class="mission-location">Le Plessis-Robinson</span></div></div>
-                  <time>6 mois</time>
+                  <div class="mission-meta"><time>6 mois</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission CNSA"></button></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
@@ -726,7 +798,7 @@
               <div class="mission">
                 <div class="mission-head">
                   <div class="mission-identity"><img class="client-logo" src="assets/arval-logo.jpg" alt="" /><div><h3>Arval — BNP Paribas</h3><span class="mission-location">Rueil-Malmaison</span></div></div>
-                  <time>4 ans</time>
+                  <div class="mission-meta"><time>4 ans</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Arval"></button></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
@@ -826,5 +898,23 @@
         ><a class="pdf" href="../CV%20Cyril%20GOMEZ%202026%20-%20revise.pdf">Télécharger le CV PDF</a>
       </div>
     </footer>
+    <script>
+      document.querySelectorAll(".mission").forEach((mission, index) => {
+        const toggle = mission.querySelector(".mission-chevron");
+        const content = mission.querySelector(".blocks");
+        const contentId = `mission-details-${index + 1}`;
+
+        content.id = contentId;
+        toggle.setAttribute("aria-controls", contentId);
+
+        toggle.addEventListener("click", () => {
+          const isOpen = mission.classList.toggle("is-open");
+          const label = toggle.getAttribute("aria-label").replace(/^(Déplier|Replier)/, isOpen ? "Replier" : "Déplier");
+
+          toggle.setAttribute("aria-expanded", String(isOpen));
+          toggle.setAttribute("aria-label", label);
+        });
+      });
+    </script>
   </body>
 </html>

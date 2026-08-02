@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="CV de Cyril Gomez, Business Analyst et Product Owner." />
-    <title>Cyril Gomez — Business Analyst / Product Owner</title>
+    <title>Cyril Gomez — IT Business Analyst</title>
     <style>
       :root {
         --ink: #182233;
@@ -87,6 +87,7 @@
       }
 
       .hero {
+        margin: 0;
         background: linear-gradient(135deg, #172a43 0%, #2363a5 100%);
         color: #fff;
         padding: 72px 0 62px;
@@ -117,15 +118,19 @@
       }
 
       .contact-card {
-        width: 286px;
+        width: 380px;
         display: grid;
-        grid-template-columns: 1fr 74px;
+        grid-template-columns: minmax(0, 1fr) 74px;
         gap: 15px;
         padding: 16px;
         border: 1px solid rgba(255, 255, 255, 0.22);
         border-radius: 14px;
         background: rgba(255, 255, 255, 0.1);
         font-size: 0.88rem;
+      }
+
+      .contact-card > div {
+        min-width: 0;
       }
 
       .contact-card strong {
@@ -137,6 +142,7 @@
         display: block;
         color: #fff;
         text-decoration: none;
+        overflow-wrap: anywhere;
       }
 
       .contact-card img {
@@ -148,7 +154,7 @@
       }
 
       main {
-        padding: 66px 0 78px;
+        padding: 42px 0 78px;
       }
 
       section {
@@ -235,6 +241,19 @@
         background: var(--pale);
       }
 
+      .company-logo {
+        display: block;
+        width: 132px;
+        height: 38px;
+        margin: 0 0 14px;
+        object-fit: contain;
+        object-position: left center;
+      }
+
+      .company-logo--solutec {
+        height: 44px;
+      }
+
       .company b {
         display: block;
         font-size: 1.16rem;
@@ -270,10 +289,32 @@
 
       .mission-head {
         display: flex;
-        align-items: baseline;
+        align-items: flex-start;
         justify-content: space-between;
         gap: 18px;
         margin-bottom: 14px;
+      }
+
+      .mission-identity {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .client-logo {
+        flex: 0 0 auto;
+        width: 84px;
+        height: 44px;
+        object-fit: contain;
+        object-position: left center;
+      }
+
+      .mission-location {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 0.86rem;
       }
 
       .mission h3 {
@@ -387,6 +428,16 @@
         }
       }
 
+      @media (max-width: 780px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-card {
+          width: 100%;
+        }
+      }
+
       @media (max-width: 650px) {
         .shell {
           width: min(100% - 30px, 1120px);
@@ -428,6 +479,10 @@
           gap: 5px;
         }
 
+        .mission-identity {
+          align-items: flex-start;
+        }
+
         .skills,
         .training {
           grid-auto-flow: row;
@@ -461,7 +516,7 @@
     <section class="hero" id="top">
       <div class="shell hero-grid">
         <div>
-          <p class="eyebrow">Business Analyst · Product Owner</p>
+          <p class="eyebrow">IT Business Analyst · Développeur</p>
           <h1>Matérialiser un besoin en application concrète<br />Concevoir une expérience utilisateur agréable<br />Accompagner jusqu'à la mise en production</h1>
         </div>
         <aside class="contact-card">
@@ -527,11 +582,11 @@
         <h2>Expériences professionnelles</h2>
         <div class="timeline">
           <article class="experience">
-            <aside class="company"><b>Capgemini</b><span>2024 — 2026</span><small>IT Business Analyst</small></aside>
+            <aside class="company"><img class="company-logo" src="assets/capgemini.svg" alt="" /><b>Capgemini</b><span>2024 — 2026</span><small>IT Business Analyst</small></aside>
             <div class="missions">
               <div class="mission">
                 <div class="mission-head">
-                  <h3>Crédit Agricole Assurances — Predica</h3>
+                  <div class="mission-identity"><img class="client-logo" src="assets/credit-agricole-assurances.png" alt="" /><div><h3>Crédit Agricole Assurances — Predica</h3><span class="mission-location">Paris</span></div></div>
                   <time>1 an 9 mois</time>
                 </div>
                 <div class="blocks">
@@ -568,7 +623,7 @@
               </div>
               <div class="mission">
                 <div class="mission-head">
-                  <h3>BNP Paribas — BCEF IT</h3>
+                  <div class="mission-identity"><img class="client-logo" src="assets/BNP-Paribas-logo.png" alt="" /><div><h3>BNP Paribas — BCEF IT</h3><span class="mission-location">Montreuil</span></div></div>
                   <time>3 mois</time>
                 </div>
                 <div class="blocks">
@@ -595,20 +650,19 @@
           </article>
           <article class="experience">
             <aside class="company">
-              <b>Klee Group</b><span>2020 — 2024</span><small>Proxy Product Owner<br />Développeur full stack</small>
+              <img class="company-logo" src="assets/klee-group.svg" alt="" /><b>Klee Group</b><span>2020 — 2024</span><small>Proxy Product Owner<br />Développeur full stack</small>
             </aside>
             <div class="missions">
               <div class="mission">
                 <div class="mission-head">
-                  <h3>Ministère de l'Intérieur - Direction du numérique</h3>
+                  <div class="mission-identity"><img class="client-logo" src="assets/Logo-Ministere-de-l-interieur.jpg" alt="" /><div><h3>Ministère de l'Intérieur - Direction du numérique</h3><span class="mission-location">Le Plessis-Robinson</span></div></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
                     <h4>Contexte fonctionnel</h4>
                     <ul>
-                      <li></li>
                       <li>Développement d'une application web de gestion des élections françaises passées et futures à destination des préfectures.</li>
-                      <li>Intervention comme développeur full stack au sein d'une équipe de 20 personnes, dans un contexte agile.</li>
+                      <li>Intervention comme développeur full stack au sein d'une équipe de 20 personnes, en contexte agile.</li>
                     </ul>
                   </div>
                   <div class="block">
@@ -624,14 +678,14 @@
               </div>
               <div class="mission">
                 <div class="mission-head">
-                  <h3>Ministère de l'Intérieur - Délégation à la sécurité routière</h3>
+                  <div class="mission-identity"><img class="client-logo" src="assets/Logo-Ministere-de-l-interieur.jpg" alt="" /><div><h3>Ministère de l'Intérieur - Délégation à la sécurité routière</h3><span class="mission-location">Le Plessis-Robinson</span></div></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
                     <h4>Contexte fonctionnel</h4>
                     <ul>
                       <li>Conception d'une application de data visualisation des indicateurs de trafic routier pour le Département du Contrôle Automatisé.</li>
-                      <li>Intervention comme Proxy Product Owner au sein d'une équipe de 8 personnes, dans un contexte agile.</li>
+                      <li>Intervention comme Proxy Product Owner au sein d'une équipe de 8 personnes, en contexte agile.</li>
                     </ul>
                   </div>
                   <div class="block">
@@ -645,14 +699,14 @@
               </div>
               <div class="mission">
                 <div class="mission-head">
-                  <h3>Caisse Nationale de Solidarité pour l'autonomie</h3>
+                  <div class="mission-identity"><img class="client-logo" src="assets/Logo_cnsa.svg" alt="" /><div><h3>Caisse Nationale de Solidarité pour l'autonomie</h3><span class="mission-location">Le Plessis-Robinson</span></div></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
                     <h4>Contexte fonctionnel</h4>
                     <ul>
                       <li>Création d'une application pour gérer les demandes d'allocations pour l'autonomie des personnes âgées et handicapées.</li>
-                      <li>Intervention comme Proxy Product Owner au sein d'une équipe de 4 personnes, dans un contexte agile.</li>
+                      <li>Intervention comme Proxy Product Owner au sein d'une équipe de 4 personnes, en contexte agile.</li>
                     </ul>
                   </div>
                   <div class="block">
@@ -668,11 +722,11 @@
             </div>
           </article>
           <article class="experience">
-            <aside class="company"><b>Solutec</b><span>2016 — 2020</span><small>Développeur Windev</small></aside>
+            <aside class="company"><img class="company-logo company-logo--solutec" src="assets/solutec.png" alt="" /><b>Solutec</b><span>2016 — 2020</span><small>Développeur Windev</small></aside>
             <div class="missions">
               <div class="mission">
                 <div class="mission-head">
-                  <h3>Arval — BNP Paribas</h3>
+                  <div class="mission-identity"><img class="client-logo" src="assets/arval-logo.jpg" alt="" /><div><h3>Arval — BNP Paribas</h3><span class="mission-location">Rueil-Malmaison</span></div></div>
                 </div>
                 <div class="blocks">
                   <div class="block">

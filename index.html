@@ -23,6 +23,10 @@
         scroll-behavior: smooth;
       }
 
+      section[id] {
+        scroll-margin-top: 76px;
+      }
+
       body {
         margin: 0;
         color: var(--ink);
@@ -40,6 +44,31 @@
 
       a {
         color: inherit;
+      }
+
+      .skip-link,
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .skip-link:focus {
+        z-index: 10;
+        top: 10px;
+        left: 10px;
+        width: auto;
+        height: auto;
+        padding: 10px 14px;
+        clip: auto;
+        border-radius: 8px;
+        color: var(--ink);
+        background: var(--white);
       }
 
       .shell {
@@ -71,19 +100,59 @@
         letter-spacing: -0.02em;
       }
 
-      nav {
+      .desktop-nav {
         display: flex;
         gap: 20px;
         font-size: 0.87rem;
       }
 
-      nav a {
+      .desktop-nav a {
         color: #dce8f4;
         text-decoration: none;
       }
 
-      nav a:hover {
+      .desktop-nav a:hover {
         color: #fff;
+      }
+
+      .mobile-menu {
+        position: relative;
+        display: none;
+      }
+
+      .mobile-menu summary {
+        color: #dce8f4;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .mobile-menu nav {
+        position: absolute;
+        top: calc(100% + 12px);
+        right: 0;
+        width: max-content;
+        min-width: 180px;
+        display: grid;
+        gap: 4px;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 10px;
+        background: #172a43;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+      }
+
+      .mobile-menu nav a {
+        padding: 8px 10px;
+        border-radius: 6px;
+        color: #dce8f4;
+        text-decoration: none;
+      }
+
+      .mobile-menu nav a:hover,
+      .mobile-menu nav a:focus-visible {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
       }
 
       .hero {
@@ -95,7 +164,7 @@
 
       .hero-grid {
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: minmax(0, 1fr) auto;
         align-items: center;
         gap: 44px;
       }
@@ -112,10 +181,9 @@
       h1 {
         max-width: 800px;
         margin: 0;
-        font-size: clamp(1.6rem, 1.8vw, 1.55rem);
+        font-size: clamp(1.55rem, 1.8vw, 1.6rem);
         line-height: 1.3;
         letter-spacing: -0.025em;
-        white-space: nowrap;
       }
 
       .contact-card {
@@ -174,6 +242,7 @@
       .section-kicker {
         margin: 0 0 11px;
         color: var(--blue);
+        font-size: 1rem;
         font-weight: 800;
         letter-spacing: 0.12em;
         text-transform: uppercase;
@@ -358,7 +427,7 @@
         padding: 0;
         width: 34px;
         height: 30px;
-        display: grid;
+        display: none;
         place-items: center;
         border: 1px solid var(--line);
         border-radius: 8px;
@@ -369,6 +438,10 @@
         transition:
           border-color 160ms ease,
           background 160ms ease;
+      }
+
+      .mission.is-collapsible .mission-chevron {
+        display: grid;
       }
 
       .mission-chevron::before {
@@ -395,7 +468,7 @@
         gap: 12px;
       }
 
-      .mission:not(.is-open) .blocks {
+      .mission.is-collapsible:not(.is-open) .blocks {
         display: none;
       }
 
@@ -465,20 +538,6 @@
         font-size: 0.9rem;
       }
 
-      .pdf {
-        display: inline-block;
-        padding: 10px 15px;
-        border: 1px solid #a8cff5;
-        border-radius: 9px;
-        color: #fff;
-        text-decoration: none;
-        font-weight: 700;
-      }
-
-      .pdf:hover {
-        background: rgba(255, 255, 255, 0.1);
-      }
-
       @media (max-width: 850px) {
         .skills {
           grid-template-columns: repeat(2, 1fr);
@@ -500,7 +559,6 @@
 
         h1 {
           font-size: clamp(1.55rem, 4.2vw, 2rem);
-          white-space: normal;
         }
 
         .contact-card {
@@ -513,8 +571,12 @@
           width: min(100% - 30px, 1120px);
         }
 
-        nav {
+        .desktop-nav {
           display: none;
+        }
+
+        .mobile-menu {
+          display: block;
         }
 
         .hero {
@@ -635,34 +697,76 @@
           border-bottom: 0;
         }
       }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .mission-chevron,
+        .mission-chevron::before {
+          transition: none;
+        }
+      }
+
+      @media print {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .topbar,
+        .mission-chevron {
+          display: none !important;
+        }
+
+        .shell {
+          width: 100%;
+        }
+
+        .mission.is-collapsible:not(.is-open) .blocks {
+          display: grid;
+        }
+
+        .mission-head,
+        .block,
+        .course,
+        .skill {
+          break-inside: avoid;
+        }
+      }
     </style>
   </head>
 
   <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
     <header class="topbar">
       <div class="shell">
         <a class="brand" href="#top">Cyril Gomez</a>
-        <nav><a href="#competences">Compétences</a><a href="#experiences">Expériences</a><a href="#formations">Formations</a></nav>
+        <nav class="desktop-nav" aria-label="Navigation principale"><a href="#competences">Compétences</a><a href="#experiences">Expériences</a><a href="#formations">Formations</a></nav>
+        <details class="mobile-menu">
+          <summary>Navigation</summary>
+          <nav aria-label="Navigation mobile"><a href="#competences">Compétences</a><a href="#experiences">Expériences</a><a href="#formations">Formations</a></nav>
+        </details>
       </div>
     </header>
     <section class="hero" id="top">
       <div class="shell hero-grid">
         <div>
           <p class="eyebrow">Consultant IT - Freelance</p>
-          <h1>Matérialiser un besoin en application concrète<br />Concevoir une expérience utilisateur agréable<br />Accompagner jusqu'à la mise en production</h1>
+          <h1><span class="sr-only">Cyril Gomez — IT Business Analyst. </span>Matérialiser un besoin en application concrète<br />Concevoir une expérience utilisateur agréable<br />Accompagner jusqu'à la mise en production</h1>
         </div>
         <aside class="contact-card">
           <div>
             <strong>Disponible à partir de janvier 2027</strong><a href="mailto:cyril.gomez13015@gmail.com">cyril.gomez13015@gmail.com</a><a href="tel:+33622534770">06 22 53 47 70</a
             ><span>Rueil-Malmaison<br />Mobilité : Île-de-France</span>
           </div>
-          <img src="photo.jpg" alt="Portrait de Cyril Gomez" />
+          <img src="assets/photo.jpg" alt="Portrait de Cyril Gomez" />
         </aside>
       </div>
     </section>
-    <main class="shell">
-      <section class="intro">
-        <div class="section-kicker">Mon profil</div>
+    <main class="shell" id="contenu" tabindex="-1">
+      <section class="intro" aria-labelledby="profil-title">
+        <h2 class="section-kicker" id="profil-title">Mon profil</h2>
         <p>
           IT Business Analyst au profil hybride, avec 6 ans d'expérience en développement et 4 ans en analyse fonctionnelle et pilotage produit. J'accompagne la conception de parcours digitaux
           ergonomiques et centrés sur l'utilisateur, en reliant les enjeux métier, l'expérience client et les contraintes techniques. Facilitateur des échanges entre les univers business et technique,
@@ -719,7 +823,7 @@
               <div class="mission">
                 <div class="mission-head">
                   <div class="mission-identity"><img class="client-logo" src="assets/credit-agricole-assurances.png" alt="" /><div><h3>Crédit Agricole Assurances — Predica</h3><span class="mission-location">Paris</span></div></div>
-                  <div class="mission-meta"><time>1 an 9 mois</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Crédit Agricole Assurances"></button></div>
+                  <div class="mission-meta"><time datetime="P1Y9M">1 an 9 mois</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Crédit Agricole Assurances"></button></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
@@ -756,7 +860,7 @@
               <div class="mission">
                 <div class="mission-head">
                   <div class="mission-identity"><img class="client-logo" src="assets/BNP-Paribas-logo.png" alt="" /><div><h3>BNP Paribas — BCEF IT</h3><span class="mission-location">Montreuil</span></div></div>
-                  <div class="mission-meta"><time>3 mois</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission BNP Paribas"></button></div>
+                  <div class="mission-meta"><time datetime="P3M">3 mois</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission BNP Paribas"></button></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
@@ -788,7 +892,7 @@
               <div class="mission">
                 <div class="mission-head">
                   <div class="mission-identity"><img class="client-logo" src="assets/Logo-Ministere-de-l-interieur.jpg" alt="" /><div><h3>Ministère de l'Intérieur - Direction du numérique</h3><span class="mission-location">Le Plessis-Robinson</span></div></div>
-                  <div class="mission-meta"><time>2 ans</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Direction du numérique"></button></div>
+                  <div class="mission-meta"><time datetime="P2Y">2 ans</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Direction du numérique"></button></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
@@ -812,7 +916,7 @@
               <div class="mission">
                 <div class="mission-head">
                   <div class="mission-identity"><img class="client-logo" src="assets/Logo-Ministere-de-l-interieur.jpg" alt="" /><div><h3>Ministère de l'Intérieur - Délégation à la sécurité routière</h3><span class="mission-location">Le Plessis-Robinson</span></div></div>
-                  <div class="mission-meta"><time>1 an</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Délégation à la sécurité routière"></button></div>
+                  <div class="mission-meta"><time datetime="P1Y">1 an</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Délégation à la sécurité routière"></button></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
@@ -834,7 +938,7 @@
               <div class="mission">
                 <div class="mission-head">
                   <div class="mission-identity"><img class="client-logo" src="assets/Logo_cnsa.svg" alt="" /><div><h3>Caisse Nationale de Solidarité pour l'autonomie</h3><span class="mission-location">Le Plessis-Robinson</span></div></div>
-                  <div class="mission-meta"><time>6 mois</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission CNSA"></button></div>
+                  <div class="mission-meta"><time datetime="P6M">6 mois</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission CNSA"></button></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
@@ -862,7 +966,7 @@
               <div class="mission">
                 <div class="mission-head">
                   <div class="mission-identity"><img class="client-logo" src="assets/arval-logo.jpg" alt="" /><div><h3>Arval — BNP Paribas</h3><span class="mission-location">Rueil-Malmaison</span></div></div>
-                  <div class="mission-meta"><time>4 ans</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Arval"></button></div>
+                  <div class="mission-meta"><time datetime="P4Y">4 ans</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Arval"></button></div>
                 </div>
                 <div class="blocks">
                   <div class="block">
@@ -955,21 +1059,23 @@
     </main>
     <footer class="footer">
       <div class="shell">
-        <span
-          ><b>Cyril Gomez</b> ·
+        <span><b>Cyril Gomez</b> ·
           <a href="mailto:cyril.gomez13015@gmail.com">cyril.gomez13015@gmail.com</a>
-          · <a href="tel:+33622534770">06 22 53 47 70</a></span
-        ><a class="pdf" href="../CV%20Cyril%20GOMEZ%202026%20-%20revise.pdf">Télécharger le CV PDF</a>
+          · <a href="tel:+33622534770">06 22 53 47 70</a></span>
       </div>
     </footer>
     <script>
       document.querySelectorAll(".mission").forEach((mission, index) => {
         const toggle = mission.querySelector(".mission-chevron");
         const content = mission.querySelector(".blocks");
+
+        if (!toggle || !content) return;
+
         const contentId = `mission-details-${index + 1}`;
 
         content.id = contentId;
         toggle.setAttribute("aria-controls", contentId);
+        mission.classList.add("is-collapsible");
 
         toggle.addEventListener("click", () => {
           const isOpen = mission.classList.toggle("is-open");
@@ -978,6 +1084,10 @@
           toggle.setAttribute("aria-expanded", String(isOpen));
           toggle.setAttribute("aria-label", label);
         });
+      });
+
+      document.querySelectorAll(".mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => link.closest("details").removeAttribute("open"));
       });
     </script>
   </body>

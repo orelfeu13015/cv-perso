@@ -18,4 +18,5 @@ Ouvrir `index.html` dans un navigateur suffit pour consulter le CV. Pour reprodu
 
 - `index.html` : contenu, styles et interactions du CV ;
 - `assets/photo.jpg` : portrait ;
-- `assets/` : portrait et logos des employeurs et clients.
+- `assets/` : portrait et logos des employeurs et clients ;
+- `output/pdf/CV-Cyril-Gomez.pdf` : version PDF A4 générée depuis la page.

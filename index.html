@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="CV de Cyril Gomez, Business Analyst et Product Owner." />
-    <title>Cyril Gomez — IT Business Analyst</title>
+    <title>Cyril Gomez — Consultant IT</title>
     <style>
       :root {
         --ink: #251b2d;
@@ -173,20 +173,36 @@
         gap: 44px;
       }
 
+      .hero-identity {
+        min-height: 146px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .hero-name {
+        max-width: none;
+        margin: 0 0 5px;
+        font-size: clamp(2.1rem, 3.2vw, 2.8rem);
+        line-height: 1;
+        letter-spacing: -0.045em;
+      }
+
       .eyebrow {
-        margin: 0 0 14px;
+        margin: 0 0 8px;
         color: #e3cef5;
-        font-size: 0.82rem;
+        font-size: 1rem;
         font-weight: 750;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
       }
 
-      h1 {
+      .tagline {
         max-width: 800px;
         margin: 0;
-        font-size: clamp(1.55rem, 1.8vw, 1.6rem);
-        line-height: 1.3;
+        font-size: clamp(1.25rem, 1.7vw, 1.4rem);
+        font-weight: 700;
+        line-height: 1.25;
         letter-spacing: -0.025em;
       }
 
@@ -219,6 +235,7 @@
       }
 
       .contact-card img {
+        align-self: center;
         width: 74px;
         height: 94px;
         object-fit: cover;
@@ -235,8 +252,11 @@
       }
 
       .intro {
+        max-width: 920px;
+        margin-right: auto;
         margin-bottom: 42px;
-        text-align: center;
+        margin-left: auto;
+        text-align: left;
       }
 
       main > section:last-child {
@@ -252,12 +272,18 @@
         text-transform: uppercase;
       }
 
+      .intro .section-kicker {
+        text-align: center;
+      }
+
       .intro p {
-        max-width: 920px;
-        margin: auto;
+        margin: 0;
         font-size: clamp(1rem, 1.7vw, 1.17rem);
+        hyphens: auto;
         line-height: 1.62;
         letter-spacing: -0.012em;
+        text-align: justify;
+        text-wrap: pretty;
       }
 
       h2 {
@@ -512,6 +538,11 @@
         border-bottom: 1px solid var(--line);
       }
 
+      .course:nth-child(3),
+      .course:last-child {
+        border-bottom: 0;
+      }
+
       .course time {
         color: var(--blue);
         font-weight: 800;
@@ -575,8 +606,8 @@
           grid-template-columns: 1fr;
         }
 
-        h1 {
-          font-size: clamp(1.55rem, 4.2vw, 2rem);
+        .hero-name {
+          font-size: clamp(2.1rem, 6vw, 2.8rem);
         }
 
         .contact-card {
@@ -597,8 +628,17 @@
           display: block;
         }
 
+        .brand {
+          font-size: 0.86rem;
+          white-space: nowrap;
+        }
+
         .hero {
           padding: 55px 0 45px;
+        }
+
+        .hero-identity {
+          min-height: 0;
         }
 
         .hero-grid,
@@ -680,6 +720,14 @@
           grid-auto-flow: row;
           grid-template-columns: 1fr;
           grid-template-rows: none;
+        }
+
+        .course:nth-child(3) {
+          border-bottom: 1px solid var(--line);
+        }
+
+        .course:last-child {
+          border-bottom: 0;
         }
 
         .skill {
@@ -769,9 +817,19 @@
           font-size: 0.7rem;
         }
 
-        h1 {
-          font-size: 1.35rem;
-          line-height: 1.25;
+        .hero-identity {
+          min-height: 96px;
+        }
+
+        .hero-name {
+          margin-bottom: 3px;
+          font-size: 1.9rem;
+          line-height: 1;
+        }
+
+        .tagline {
+          font-size: 1.05rem;
+          line-height: 1.2;
         }
 
         .contact-card {
@@ -940,7 +998,7 @@
     <a class="skip-link" href="#contenu">Aller au contenu</a>
     <header class="topbar">
       <div class="shell">
-        <a class="brand" href="#top">Cyril Gomez</a>
+        <a class="brand" href="#top">Cyril Gomez - Consultant IT</a>
         <nav class="desktop-nav" aria-label="Navigation principale"><a href="#competences">Compétences</a><a href="#experiences">Expériences</a><a href="#formations">Formations</a></nav>
         <details class="mobile-menu">
           <summary>Navigation</summary>
@@ -950,9 +1008,10 @@
     </header>
     <section class="hero" id="top">
       <div class="shell hero-grid">
-        <div>
+        <div class="hero-identity">
+          <h1 class="hero-name">CYRIL GOMEZ</h1>
           <p class="eyebrow">Consultant IT - Freelance</p>
-          <h1><span class="sr-only">Cyril Gomez — IT Business Analyst. </span>Matérialiser un besoin en application concrète<br />Concevoir une expérience utilisateur agréable<br />Accompagner jusqu'à la mise en production</h1>
+          <p class="tagline">Matérialiser votre besoin en application concrète</p>
         </div>
         <aside class="contact-card">
           <div>

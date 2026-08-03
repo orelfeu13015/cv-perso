@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="CV de Cyril Gomez, Business Analyst et Product Owner." />
-    <title>Cyril Gomez — IT Business Analyst</title>
+    <title>Cyril Gomez — Consultant IT</title>
     <style>
       :root {
         --ink: #251b2d;
@@ -173,20 +173,36 @@
         gap: 44px;
       }
 
+      .hero-identity {
+        min-height: 146px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .hero-name {
+        max-width: none;
+        margin: 0 0 5px;
+        font-size: clamp(2.1rem, 3.2vw, 2.8rem);
+        line-height: 1;
+        letter-spacing: -0.045em;
+      }
+
       .eyebrow {
-        margin: 0 0 14px;
+        margin: 0 0 8px;
         color: #e3cef5;
-        font-size: 0.82rem;
+        font-size: 1rem;
         font-weight: 750;
-        letter-spacing: 0.12em;
+        letter-spacing: 0.1em;
         text-transform: uppercase;
       }
 
-      h1 {
+      .tagline {
         max-width: 800px;
         margin: 0;
-        font-size: clamp(1.55rem, 1.8vw, 1.6rem);
-        line-height: 1.3;
+        font-size: clamp(1.25rem, 1.7vw, 1.4rem);
+        font-weight: 700;
+        line-height: 1.25;
         letter-spacing: -0.025em;
       }
 
@@ -219,6 +235,7 @@
       }
 
       .contact-card img {
+        align-self: center;
         width: 74px;
         height: 94px;
         object-fit: cover;
@@ -235,8 +252,11 @@
       }
 
       .intro {
+        max-width: 920px;
+        margin-right: auto;
         margin-bottom: 42px;
-        text-align: center;
+        margin-left: auto;
+        text-align: left;
       }
 
       main > section:last-child {
@@ -252,12 +272,18 @@
         text-transform: uppercase;
       }
 
+      .intro .section-kicker {
+        text-align: center;
+      }
+
       .intro p {
-        max-width: 920px;
-        margin: auto;
+        margin: 0;
         font-size: clamp(1rem, 1.7vw, 1.17rem);
+        hyphens: auto;
         line-height: 1.62;
         letter-spacing: -0.012em;
+        text-align: justify;
+        text-wrap: pretty;
       }
 
       h2 {
@@ -512,6 +538,11 @@
         border-bottom: 1px solid var(--line);
       }
 
+      .course:nth-child(3),
+      .course:last-child {
+        border-bottom: 0;
+      }
+
       .course time {
         color: var(--blue);
         font-weight: 800;
@@ -540,6 +571,10 @@
         justify-content: space-between;
         gap: 20px;
         font-size: 0.9rem;
+      }
+
+      .print-cv-link {
+        display: none;
       }
 
       .pdf {
@@ -575,8 +610,8 @@
           grid-template-columns: 1fr;
         }
 
-        h1 {
-          font-size: clamp(1.55rem, 4.2vw, 2rem);
+        .hero-name {
+          font-size: clamp(2.1rem, 6vw, 2.8rem);
         }
 
         .contact-card {
@@ -597,8 +632,17 @@
           display: block;
         }
 
+        .brand {
+          font-size: 0.86rem;
+          white-space: nowrap;
+        }
+
         .hero {
           padding: 55px 0 45px;
+        }
+
+        .hero-identity {
+          min-height: 0;
         }
 
         .hero-grid,
@@ -682,6 +726,14 @@
           grid-template-rows: none;
         }
 
+        .course:nth-child(3) {
+          border-bottom: 1px solid var(--line);
+        }
+
+        .course:last-child {
+          border-bottom: 0;
+        }
+
         .skill {
           border-right: 0;
           border-bottom: 1px solid var(--line);
@@ -730,7 +782,7 @@
       @media print {
         @page {
           size: A4;
-          margin: 12mm;
+          margin: 10mm;
         }
 
         html {
@@ -739,8 +791,8 @@
 
         body {
           background: #fff;
-          font-size: 13px;
-          line-height: 1.4;
+          font-size: 9px;
+          line-height: 1.32;
           print-color-adjust: exact;
           -webkit-print-color-adjust: exact;
         }
@@ -756,71 +808,87 @@
         }
 
         .hero {
-          padding: 28px 0;
+          padding: 10mm;
+          background: linear-gradient(118deg, #512064 0%, #7f3c8b 58%, #9c4b72 100%);
+          break-inside: avoid;
         }
 
         .hero-grid {
-          grid-template-columns: minmax(0, 1fr) 290px;
-          gap: 24px;
+          grid-template-columns: minmax(0, 1fr) 69mm;
+          gap: 8mm;
         }
 
         .eyebrow {
-          margin-bottom: 8px;
-          font-size: 0.7rem;
+          margin-bottom: 3px;
+          font-size: 7.5pt;
         }
 
-        h1 {
-          font-size: 1.35rem;
-          line-height: 1.25;
+        .hero-identity {
+          min-height: 50px;
+        }
+
+        .hero-name {
+          margin-bottom: 2px;
+          font-size: 22pt;
+          line-height: 1;
+        }
+
+        .tagline {
+          font-size: 11pt;
+          line-height: 1.16;
         }
 
         .contact-card {
-          width: 290px;
-          grid-template-columns: minmax(0, 1fr) 58px;
-          gap: 10px;
-          padding: 11px;
-          font-size: 0.72rem;
+          width: 69mm;
+          grid-template-columns: minmax(0, 1fr) 15mm;
+          gap: 3mm;
+          padding: 3.5mm;
+          border-radius: 7px;
+          font-size: 7.2pt;
+          line-height: 1.38;
         }
 
         .contact-card img {
-          width: 58px;
-          height: 74px;
+          width: 15mm;
+          height: 20mm;
+          border-radius: 5px;
         }
 
         main {
-          padding: 24px 0 30px;
+          padding: 5mm 0 0;
         }
 
         section {
-          margin-bottom: 30px;
+          margin-bottom: 4mm;
         }
 
         .intro {
-          margin-bottom: 26px;
+          margin-bottom: 4mm;
         }
 
         .intro p {
-          font-size: 0.88rem;
-          line-height: 1.45;
+          font-size: 8.5pt;
+          line-height: 1.36;
         }
 
         h2 {
-          margin-bottom: 16px;
-          font-size: 1.4rem;
+          margin-bottom: 2.5mm;
+          font-size: 14pt;
           break-after: avoid;
         }
 
         .section-kicker {
-          margin-bottom: 7px;
-          font-size: 0.82rem;
+          margin-bottom: 1.5mm;
+          font-size: 7.5pt;
         }
 
         ul {
-          font-size: 0.82rem;
+          padding-left: 3.8mm;
+          font-size: 7.6pt;
         }
 
         li + li {
-          margin-top: 4px;
+          margin-top: 1px;
         }
 
         #competences .skills,
@@ -829,84 +897,131 @@
         }
 
         .skill {
-          padding: 16px;
+          padding: 3.5mm;
+        }
+
+        .skill h3 {
+          margin-bottom: 1.6mm;
+          font-size: 8.5pt;
         }
 
         .experience {
-          display: block;
-          overflow: visible;
+          display: grid;
+          grid-template-columns: 31mm minmax(0, 1fr);
+          border-width: 2px;
+          width: calc(100% - 2mm);
+          margin-right: auto;
+          margin-left: auto;
+          border-radius: 7px;
+          overflow: hidden;
+          break-inside: avoid;
+        }
+
+        .skills {
+          border-width: 2px;
+          width: calc(100% - 2mm);
+          margin-right: auto;
+          margin-left: auto;
+        }
+
+        .experience {
+          border-color: var(--line);
         }
 
         .company {
-          display: grid;
-          grid-template-columns: 118px minmax(0, 1fr) auto;
-          grid-template-rows: auto auto;
-          align-items: center;
-          gap: 3px 16px;
-          padding: 13px 18px;
-          break-inside: avoid;
-          break-after: avoid;
+          display: flex;
+          min-width: 0;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          gap: 1.5mm;
+          padding: 4mm;
         }
 
         .company-logo,
         .company-logo--solutec {
-          grid-column: 1;
-          grid-row: 1 / 3;
-          width: 105px;
-          height: 34px;
-          margin: 0;
+          width: 22mm;
+          height: 9mm;
+          margin: 0 0 1mm;
         }
 
         .company b {
-          grid-column: 2;
-          grid-row: 1;
-          font-size: 1rem;
+          font-size: 9pt;
         }
 
         .company span {
-          grid-column: 3;
-          grid-row: 1;
           margin: 0;
-          text-align: right;
+          font-size: 7.5pt;
+          text-align: left;
         }
 
         .company small {
-          grid-column: 2 / 4;
-          grid-row: 2;
           margin: 0;
-          font-size: 0.76rem;
+          font-size: 7pt;
+          line-height: 1.26;
         }
 
         .missions {
           display: block;
-          padding: 0 18px;
+          padding: 0 4mm;
         }
 
         .mission {
-          padding: 16px 0;
+          padding: 3mm 0;
         }
 
         .mission-head {
           break-after: avoid;
+          gap: 3mm;
         }
 
         .mission h3 {
-          font-size: 0.96rem;
+          font-size: 8.5pt;
+        }
+
+        .mission-location {
+          margin-top: 0.5mm;
+          font-size: 7.1pt;
         }
 
         .client-logo {
-          width: 72px;
-          height: 36px;
+          width: 17mm;
+          height: 8mm;
+        }
+
+        .blocks {
+          gap: 0;
+          border-left: 2px solid var(--blue);
+          background: #faf7fc;
         }
 
         .block {
-          padding: 10px 12px;
+          padding: 2mm 2.5mm;
+          border-left: 0;
+          background: transparent;
         }
 
         .block h4 {
-          margin-bottom: 5px;
-          font-size: 0.7rem;
-          break-after: avoid;
+          display: none;
+        }
+
+        .block p {
+          font-size: 7.4pt;
+          line-height: 1.28;
+        }
+
+        .block:first-child ul {
+          padding-left: 0;
+          color: var(--blue);
+          font-size: 7.4pt;
+          font-weight: 650;
+          list-style: none;
+        }
+
+        /* Le PDF privilégie les éléments différenciants : un contexte et trois réalisations par mission. */
+        .block:first-child li:nth-child(n + 2),
+        .block:nth-child(2) li:nth-child(n + 4) {
+          display: none;
         }
 
         .mission.is-collapsible:not(.is-open) .blocks {
@@ -921,16 +1036,76 @@
         }
 
         .course {
-          padding: 10px 0;
+          padding: 1.5mm 0;
+          gap: 3mm;
+        }
+
+        .course time {
+          font-size: 7.5pt;
+        }
+
+        .course b,
+        .course span {
+          font-size: 7.2pt;
+          line-height: 1.2;
         }
 
         .footer {
-          padding: 20px 0;
-          break-inside: avoid;
+          display: block;
+          margin-top: 15mm;
+          padding: 0;
+          border: 0;
+          background: transparent;
+          color: var(--muted);
+        }
+
+        .footer .shell {
+          display: block;
+          font-size: 7pt;
+          text-align: center;
+        }
+
+        .footer .shell > span {
+          display: none;
+        }
+
+        .print-cv-link {
+          display: inline;
+          color: var(--blue);
+          font-weight: 750;
+          text-decoration: none;
         }
 
         #interets {
-          break-before: page;
+          margin-bottom: 3mm;
+        }
+
+        #interets h2 {
+          margin-bottom: 2mm;
+          font-size: 11pt;
+        }
+
+        #interets .skills {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        #interets .skill {
+          padding: 1.5mm 3.5mm;
+          border-right: 2px solid var(--line);
+          border-bottom: 0;
+        }
+
+        #interets .skill:last-child {
+          border-right: 0;
+        }
+
+        #interets .skill h3 {
+          margin-bottom: 1mm;
+          font-size: 7.8pt;
+        }
+
+        #interets ul {
+          font-size: 6.9pt;
         }
       }
     </style>
@@ -940,7 +1115,7 @@
     <a class="skip-link" href="#contenu">Aller au contenu</a>
     <header class="topbar">
       <div class="shell">
-        <a class="brand" href="#top">Cyril Gomez</a>
+        <a class="brand" href="#top">Cyril Gomez - Consultant IT</a>
         <nav class="desktop-nav" aria-label="Navigation principale"><a href="#competences">Compétences</a><a href="#experiences">Expériences</a><a href="#formations">Formations</a></nav>
         <details class="mobile-menu">
           <summary>Navigation</summary>
@@ -950,9 +1125,10 @@
     </header>
     <section class="hero" id="top">
       <div class="shell hero-grid">
-        <div>
+        <div class="hero-identity">
+          <h1 class="hero-name">CYRIL GOMEZ</h1>
           <p class="eyebrow">Consultant IT - Freelance</p>
-          <h1><span class="sr-only">Cyril Gomez — IT Business Analyst. </span>Matérialiser un besoin en application concrète<br />Concevoir une expérience utilisateur agréable<br />Accompagner jusqu'à la mise en production</h1>
+          <p class="tagline">Matérialiser votre besoin en application concrète</p>
         </div>
         <aside class="contact-card">
           <div>
@@ -1261,6 +1437,7 @@
         <span><b>Cyril Gomez</b> ·
           <a href="mailto:cyril.gomez13015@gmail.com">cyril.gomez13015@gmail.com</a>
           · <a href="tel:+33622534770">06 22 53 47 70</a></span>
+        <a class="print-cv-link" href="https://cv-cyril-gomez.pages.dev">Version web : https://cv-cyril-gomez.pages.dev</a>
         <a class="pdf" href="output/pdf/CV-Cyril-Gomez.pdf" download>Télécharger le CV PDF</a>
       </div>
     </footer>

@@ -1,100 +1,1294 @@
 <!doctype html>
 <html lang="fr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="CV de Cyril Gomez, Business Analyst et Product Owner.">
-  <title>Cyril Gomez — Business Analyst / Product Owner</title>
-  <style>
-    :root { --ink:#182233; --muted:#56647a; --blue:#2363a5; --pale:#edf5fc; --line:#d7e4f0; --white:#fff; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; color:var(--ink); background:#f6f8fb; font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height:1.55; }
-    a { color:inherit; }
-    .shell { width:min(1120px, calc(100% - 40px)); margin:auto; }
-    .topbar { position:sticky; top:0; z-index:4; border-bottom:1px solid rgba(255,255,255,.14); background:rgba(20,35,56,.94); color:#fff; backdrop-filter:blur(12px); }
-    .topbar .shell { min-height:58px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
-    .brand { font-weight:750; text-decoration:none; letter-spacing:-.02em; }
-    nav { display:flex; gap:20px; font-size:.87rem; }
-    nav a { color:#dce8f4; text-decoration:none; }
-    nav a:hover { color:#fff; }
-    .hero { background:linear-gradient(135deg,#172a43 0%,#2363a5 100%); color:#fff; padding:72px 0 62px; }
-    .hero-grid { display:grid; grid-template-columns:1fr auto; align-items:center; gap:44px; }
-    .eyebrow { margin:0 0 14px; color:#abd4ff; font-size:.82rem; font-weight:750; letter-spacing:.12em; text-transform:uppercase; }
-    h1 { max-width:800px; margin:0; font-size:clamp(2rem,4.3vw,3.65rem); line-height:1.08; letter-spacing:-.047em; }
-    .name { margin:17px 0 0; color:#c8e2fb; font-size:1.05rem; font-weight:750; letter-spacing:.02em; text-transform:uppercase; }
-    .role { margin:5px 0 0; color:#dceaff; font-size:1rem; }
-    .contact-card { width:286px; display:grid; grid-template-columns:1fr 74px; gap:15px; padding:16px; border:1px solid rgba(255,255,255,.22); border-radius:14px; background:rgba(255,255,255,.1); font-size:.88rem; }
-    .contact-card strong { display:block; margin-bottom:5px; }
-    .contact-card a { display:block; color:#fff; text-decoration:none; }
-    .contact-card img { width:74px; height:94px; object-fit:cover; object-position:center; border-radius:9px; }
-    main { padding:66px 0 78px; }
-    section { margin:0 0 68px; }
-    .intro { text-align:center; }
-    .section-kicker { margin:0 0 11px; color:var(--blue); font-size:.78rem; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
-    .intro p { max-width:920px; margin:auto; font-size:clamp(1rem,1.7vw,1.17rem); line-height:1.62; letter-spacing:-.012em; }
-    h2 { margin:0 0 25px; font-size:1.65rem; letter-spacing:-.035em; }
-    .skills { display:grid; grid-template-columns:repeat(4,1fr); overflow:hidden; border:1px solid var(--line); border-radius:16px; background:#fff; }
-    .skill { padding:24px; border-right:1px solid var(--line); }
-    .skill:last-child { border-right:0; }
-    h3 { margin:0 0 12px; font-size:1rem; letter-spacing:-.01em; }
-    ul { margin:0; padding-left:18px; color:var(--muted); font-size:.93rem; }
-    li + li { margin-top:6px; }
-    .timeline { display:grid; gap:20px; }
-    .experience { display:grid; grid-template-columns:190px 1fr; border:1px solid var(--line); border-radius:16px; overflow:hidden; background:#fff; }
-    .company { padding:28px 24px; background:var(--pale); }
-    .company b { display:block; font-size:1.16rem; }
-    .company span { display:block; margin-top:4px; color:var(--blue); font-weight:700; font-size:.9rem; }
-    .company small { display:block; margin-top:32px; color:var(--muted); font-size:.86rem; line-height:1.45; }
-    .missions { padding:0 28px 26px; }
-    .mission { padding:25px 0; }
-    .mission + .mission { border-top:1px solid var(--line); }
-    .mission-head { display:flex; align-items:baseline; justify-content:space-between; gap:18px; margin-bottom:14px; }
-    .mission h3 { margin:0; font-size:1.08rem; }
-    .mission time { flex:0 0 auto; color:var(--blue); font-size:.83rem; font-weight:750; }
-    .blocks { display:grid; gap:12px; }
-    .block { padding:14px 16px; border-left:3px solid var(--blue); background:#fafcff; }
-    .block h4 { margin:0 0 7px; color:var(--blue); font-size:.78rem; letter-spacing:.06em; text-transform:uppercase; }
-    .block p { margin:0; color:var(--muted); font-size:.91rem; }
-    .training { display:grid; grid-auto-flow:column; grid-template-rows:repeat(3, auto); grid-template-columns:repeat(2,1fr); gap:12px 42px; }
-    .course { display:grid; grid-template-columns:68px 1fr; gap:12px; padding:14px 0; border-bottom:1px solid var(--line); }
-    .course time { color:var(--blue); font-weight:800; }
-    .course b { display:block; font-size:.93rem; }
-    .course span { display:block; color:var(--muted); font-size:.86rem; }
-    .footer { padding:38px 0; background:#172a43; color:#d9e6f3; }
-    .footer .shell { display:flex; align-items:center; justify-content:space-between; gap:20px; font-size:.9rem; }
-    .pdf { display:inline-block; padding:10px 15px; border:1px solid #a8cff5; border-radius:9px; color:#fff; text-decoration:none; font-weight:700; }
-    .pdf:hover { background:rgba(255,255,255,.1); }
-    @media (max-width:850px) { .skills { grid-template-columns:repeat(2,1fr); } .skill:nth-child(2) { border-right:0; } .skill:nth-child(-n+2) { border-bottom:1px solid var(--line); } }
-    @media (max-width:650px) { .shell { width:min(100% - 30px,1120px); } nav { display:none; } .hero { padding:55px 0 45px; } .hero-grid,.experience { grid-template-columns:1fr; } .contact-card { width:100%; } .company { padding:20px; } .company small { margin-top:12px; } .missions { padding:0 20px 20px; } .mission-head,.footer .shell { align-items:flex-start; flex-direction:column; gap:5px; } .skills,.training { grid-auto-flow:row; grid-template-columns:1fr; grid-template-rows:none; } .skill { border-right:0; border-bottom:1px solid var(--line); } .skill:last-child { border-bottom:0; } .skill:nth-child(2) { border-bottom:1px solid var(--line); } }
-  </style>
-</head>
-<body>
-  <header class="topbar"><div class="shell"><a class="brand" href="#top">Cyril Gomez</a><nav><a href="#competences">Compétences</a><a href="#experiences">Expériences</a><a href="#formations">Formations</a></nav></div></header>
-  <section class="hero" id="top"><div class="shell hero-grid"><div><p class="eyebrow">Business Analyst · Product Owner · Freelance</p><h1>Relier les enjeux métier,<br>l'expérience client et la technique.</h1><p class="name">Cyril Gomez</p><p class="role">Profil hybride — analyse, conception produit et culture technique.</p></div><aside class="contact-card"><div><strong>Freelance — disponible à partir de janvier 2027</strong><a href="mailto:cyril.gomez13015@gmail.com">cyril.gomez13015@gmail.com</a><a href="tel:+33622534770">06 22 53 47 70</a><span>Rueil-Malmaison<br>Mobilité : Île-de-France</span></div><img src="photo.jpg" alt="Portrait de Cyril Gomez"></aside></div></section>
-  <main class="shell">
-    <section class="intro"><div class="section-kicker">Mon profil</div><p>Business Analyst / Product Owner au profil hybride, avec 6 ans d'expérience en développement et 4 ans en analyse fonctionnelle et pilotage produit. J'accompagne la conception de parcours digitaux utiles et centrés sur l'utilisateur, en reliant les enjeux métier, l'expérience client et les contraintes techniques. Facilitateur des échanges entre les univers business et technique, je fais de la mise à disposition claire des connaissances et des besoins un enjeu principal de mon métier. En me mettant à la place de l'utilisateur final, je suis convaincu qu'une bonne expérience utilisateur est un ingrédient indispensable de la satisfaction client.</p></section>
-    <section id="competences"><h2>Compétences</h2><div class="skills">
-      <article class="skill"><h3>Analyse & produit</h3><ul><li>Recueil et formalisation du besoin</li><li>Spécifications fonctionnelles et techniques</li><li>Parcours digitaux, UX et maquettage</li><li>Backlog, User Stories, recette</li></ul></article>
-      <article class="skill"><h3>Conception technique</h3><ul><li>API REST / Swagger, diagrammes de séquence</li><li>Java, Angular, Spring MVC</li><li>SQL / Oracle, Git, Jenkins</li><li>Kafka et schémas Avro</li></ul></article>
-      <article class="skill"><h3>Pilotage & méthodes</h3><ul><li>Agile : Scrum, SAFe, Kanban</li><li>Jira, Confluence, Xray</li><li>Coordination métier, UX et technique</li><li>Amélioration continue</li></ul></article>
-      <article class="skill"><h3>IA & langues</h3><ul><li>GitHub Copilot et agents IA</li><li>Aide à la rédaction, analyse et code</li><li>Anglais professionnel — TOEIC 920</li></ul></article>
-    </div></section>
-    <section id="experiences"><h2>Expériences professionnelles</h2><div class="timeline">
-      <article class="experience"><aside class="company"><b>Capgemini</b><span>2024 — 2026</span><small>IT Business Analyst</small></aside><div class="missions">
-        <div class="mission"><div class="mission-head"><h3>Crédit Agricole Assurances — Predica</h3><time>1 an 9 mois</time></div><div class="blocks"><div class="block"><h4>Contexte fonctionnel</h4><p>Lancement du parcours d'adhésion Selfcare du nouveau produit d'assurance-vie Oriance, élargi aux clients LCL, à la gestion sous mandat et au PER. Équipe d'une quinzaine de personnes organisée en Agile SAFe, avec cérémonies de sprint et PI Planning. Environnement multi-briques, avec des API réparties entre équipes ; l'application est directement utilisée par les entités distributrices CATS et LCL.</p></div><div class="block"><h4>Activités du poste</h4><p>Analyse des besoins métier et rédaction des spécifications fonctionnelles et techniques. Découpage des User Stories techniques à partir de Functional Features orientées produit. Conception des endpoints d'API, des contrats Swagger et des diagrammes de séquence, mis à disposition dans Git. Conception d'événements Kafka et de schémas Avro.</p><p>Conception et livraison de fonctionnalités de bout en bout, du cadrage à la mise en production. Coordination avec les équipes de pilotage, cadrage, architecture, UX, test, les autres briques techniques et les caisses régionales utilisatrices. Suivi des versions, de l'intégration dans le « couloir de livraison », de la recette sur les environnements connectés au distributeur et des anomalies jusqu'aux retours de production.</p><p>Contribution à l'amélioration continue : règles automatisées avec IA Rovo intégrée à Jira, tableaux de bord sur mesure et vues Structure. Utilisation de l'IA pour la rédaction et l'analyse, création d'agents ciblés, génération de code et tests du code généré.</p></div></div></div>
-        <div class="mission"><div class="mission-head"><h3>BNP Paribas — BCEF IT</h3><time>3 mois</time></div><div class="blocks"><div class="block"><h4>Contexte fonctionnel</h4><p>Application transverse de gestion des activités collaborateur, intégrée à l'écosystème IT de la banque.</p></div><div class="block"><h4>Activités du poste</h4><p>Ateliers de cadrage métier et d'architecture autour des opportunités de contact de la Banque Privée. Documentation fonctionnelle et User Stories avec le Product Owner, les développeurs et l'UX Design.</p></div></div></div>
-      </div></article>
-      <article class="experience"><aside class="company"><b>Klee Group</b><span>2020 — 2024</span><small>Consultant fonctionnel<br>Scrum Product Owner<br>Développeur full stack</small></aside><div class="missions"><div class="mission"><div class="mission-head"><h3>Applications web de gestion pour le secteur public</h3></div><div class="blocks"><div class="block"><h4>Contexte fonctionnel</h4><p>Nombreux projets d'applications web de gestion pour le ministère de l'Intérieur en contexte agile, au sein d'équipes de 4 à 20 personnes.</p></div><div class="block"><h4>Activités du poste</h4><p>Conception d'une application de data visualisation des indicateurs de trafic routier pour le Département du Contrôle Automatisé : transcription de composants Angular dans Figma, conception du module de rotation des équipements, User Stories, recette et présentations client.</p><p>Création d'une application de gestion de dossiers pour la Caisse nationale de solidarité pour l'autonomie : aide à l'expression de besoin, cadrage de la co-conception, documentation métier, priorisation Kanban et démonstrations. Conception de l'écran de choix des bureaux de vote pour les estimations électorales, puis développement d'une application de gestion des scrutins à destination des préfectures : candidatures, résultats et mentorat de deux juniors.</p></div></div></div></div></article>
-      <article class="experience"><aside class="company"><b>Solutec</b><span>2016 — 2020</span><small>Développeur<br>Maintenance applicative</small></aside><div class="missions"><div class="mission"><div class="mission-head"><h3>Arval — BNP Paribas</h3></div><div class="blocks"><div class="block"><h4>Contexte fonctionnel</h4><p>Multiples projets liés au processus de location de véhicules pour les pays BRIC et LatAm, comprenant des activités de développement et de maintenance applicative.</p></div><div class="block"><h4>Activités du poste</h4><p>Développement Java autour de la programmation orientée objet, SQL et WebServices REST ; rédaction de spécifications techniques à partir d'études fonctionnelles. Refonte du système de gestion documentaire avec envoi vers Alfresco, mise en place de KPI de performance et migration de code Windev vers Java.</p><p>Tierce maintenance applicative : correction d'anomalies via Quality Center et communication en anglais avec les utilisateurs métier des pays étrangers, sur des projets d'environ 2 500 jours/homme par an.</p></div></div></div></div></article>
-    </div></section>
-    <section id="formations"><h2>Formations et certifications</h2><div class="training">
-      <div class="course"><time>2026</time><div><b>Oser s'exprimer en public, et gagner en aisance à l'oral</b><span>La Défense (Orsys)</span></div></div><div class="course"><time>2025</time><div><b>Exploitez la puissance de l'IA : enjeux, concepts et cas d'usages</b><span>Paris</span></div></div>
-      <div class="course"><time>2023</time><div><b>Professional Scrum Product Owner I — 97,5 %</b><span>Orsys, en ligne</span></div></div><div class="course"><time>2022</time><div><b>User eXperience</b><span>Orsys, en ligne</span></div></div>
-      <div class="course"><time>2011–15</time><div><b>Diplôme d'ingénieur Arts et Métiers ParisTech (ENSAM)</b><span>Aix-en-Provence</span></div></div><div class="course"><time>2009–11</time><div><b>Classe préparatoire aux Grandes Écoles — PTSI / PT*</b><span>Marseille</span></div></div>
-    </div></section>
-    <section id="interets"><h2>Centres d'intérêt</h2><div class="skills"><article class="skill"><h3>Culture</h3><ul><li>Littérature française</li><li>Histoire de l'Homme</li><li>Jeux vidéo</li></ul></article><article class="skill"><h3>Sport & expression</h3><ul><li>Danses latines</li><li>Musculation</li><li>Piano</li></ul></article><article class="skill"><h3>Réflexion</h3><ul><li>Échecs</li></ul></article><article class="skill"><h3>Mobilité</h3><ul><li>Permis B, véhiculé</li><li>Île-de-France</li></ul></article></div></section>
-  </main>
-  <footer class="footer"><div class="shell"><span><b>Cyril Gomez</b> · <a href="mailto:cyril.gomez13015@gmail.com">cyril.gomez13015@gmail.com</a> · <a href="tel:+33622534770">06 22 53 47 70</a></span><a class="pdf" href="../CV%20Cyril%20GOMEZ%202026%20-%20revise.pdf">Télécharger le CV PDF</a></div></footer>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="CV de Cyril Gomez, Business Analyst et Product Owner." />
+    <title>Cyril Gomez — IT Business Analyst</title>
+    <style>
+      :root {
+        --ink: #251b2d;
+        --muted: #665e73;
+        --blue: #7c3fa0;
+        --pale: #f0e5f6;
+        --line: #dbcce5;
+        --white: #fffcff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      section[id] {
+        scroll-margin-top: 76px;
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background: #f9f4fb;
+        font-family:
+          Inter,
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        line-height: 1.55;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .skip-link,
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .skip-link:focus {
+        z-index: 10;
+        top: 10px;
+        left: 10px;
+        width: auto;
+        height: auto;
+        padding: 10px 14px;
+        clip: auto;
+        border-radius: 8px;
+        color: var(--ink);
+        background: var(--white);
+      }
+
+      .shell {
+        width: min(1120px, calc(100% - 40px));
+        margin: auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 4;
+        border-bottom: 1px solid rgba(199, 175, 227, 0.24);
+        background: rgba(23, 10, 43, 0.96);
+        color: #fff;
+        backdrop-filter: blur(12px);
+      }
+
+      .topbar .shell {
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        font-weight: 750;
+        text-decoration: none;
+        letter-spacing: -0.02em;
+      }
+
+      .desktop-nav {
+        display: flex;
+        gap: 20px;
+        font-size: 0.87rem;
+      }
+
+      .desktop-nav a {
+        color: #eadff3;
+        text-decoration: none;
+      }
+
+      .desktop-nav a:hover {
+        color: #fff;
+      }
+
+      .mobile-menu {
+        position: relative;
+        display: none;
+      }
+
+      .mobile-menu summary {
+        color: #eadff3;
+        cursor: pointer;
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+
+      .mobile-menu nav {
+        position: absolute;
+        top: calc(100% + 12px);
+        right: 0;
+        width: max-content;
+        min-width: 180px;
+        display: grid;
+        gap: 4px;
+        padding: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 10px;
+        background: #24113d;
+        box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24);
+      }
+
+      .mobile-menu nav a {
+        padding: 8px 10px;
+        border-radius: 6px;
+        color: #eadff3;
+        text-decoration: none;
+      }
+
+      .mobile-menu nav a:hover,
+      .mobile-menu nav a:focus-visible {
+        color: #fff;
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      .hero {
+        margin: 0;
+        background:
+          radial-gradient(circle at 78% 106%, rgba(217, 79, 157, 0.56) 0%, transparent 37%),
+          radial-gradient(circle at 48% 118%, rgba(199, 175, 227, 0.42) 0%, transparent 34%),
+          radial-gradient(circle at 16% 112%, rgba(106, 43, 201, 0.4) 0%, transparent 34%),
+          linear-gradient(128deg, #120322 0%, #410b75 52%, #791847 100%);
+        color: #fff;
+        padding: 72px 0 62px;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 44px;
+      }
+
+      .eyebrow {
+        margin: 0 0 14px;
+        color: #e3cef5;
+        font-size: 0.82rem;
+        font-weight: 750;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 800px;
+        margin: 0;
+        font-size: clamp(1.55rem, 1.8vw, 1.6rem);
+        line-height: 1.3;
+        letter-spacing: -0.025em;
+      }
+
+      .contact-card {
+        width: 380px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 74px;
+        gap: 15px;
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        border-radius: 14px;
+        background: rgba(255, 255, 255, 0.1);
+        font-size: 0.88rem;
+      }
+
+      .contact-card > div {
+        min-width: 0;
+      }
+
+      .contact-card strong {
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .contact-card a {
+        display: block;
+        color: #fff;
+        text-decoration: none;
+        overflow-wrap: anywhere;
+      }
+
+      .contact-card img {
+        width: 74px;
+        height: 94px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 9px;
+      }
+
+      main {
+        padding: 42px 0 48px;
+      }
+
+      section {
+        margin: 0 0 68px;
+      }
+
+      .intro {
+        margin-bottom: 42px;
+        text-align: center;
+      }
+
+      main > section:last-child {
+        margin-bottom: 0;
+      }
+
+      .section-kicker {
+        margin: 0 0 11px;
+        color: var(--blue);
+        font-size: 1rem;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .intro p {
+        max-width: 920px;
+        margin: auto;
+        font-size: clamp(1rem, 1.7vw, 1.17rem);
+        line-height: 1.62;
+        letter-spacing: -0.012em;
+      }
+
+      h2 {
+        margin: 0 0 25px;
+        font-size: 1.65rem;
+        letter-spacing: -0.035em;
+      }
+
+      .skills {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: #fff;
+      }
+
+      .skill {
+        padding: 24px;
+        border-right: 1px solid var(--line);
+      }
+
+      .skill:last-child {
+        border-right: 0;
+      }
+
+      h3 {
+        margin: 0 0 12px;
+        font-size: 1rem;
+        letter-spacing: -0.01em;
+      }
+
+      ul {
+        margin: 0;
+        padding-left: 18px;
+        color: var(--muted);
+        font-size: 0.93rem;
+      }
+
+      li + li {
+        margin-top: 6px;
+      }
+
+      .timeline {
+        display: grid;
+        gap: 20px;
+      }
+
+      .experience {
+        display: grid;
+        grid-template-columns: 190px 1fr;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .company {
+        padding: 28px 24px;
+        background: var(--pale);
+      }
+
+      .company-logo {
+        display: block;
+        width: 132px;
+        height: 38px;
+        margin: 0 0 14px;
+        object-fit: contain;
+        object-position: left center;
+      }
+
+      .company-logo--solutec {
+        height: 44px;
+      }
+
+      .company b {
+        display: block;
+        font-size: 1.16rem;
+      }
+
+      .company span {
+        display: block;
+        margin-top: 4px;
+        color: var(--blue);
+        font-weight: 700;
+        font-size: 0.9rem;
+      }
+
+      .company small {
+        display: block;
+        margin-top: 32px;
+        color: var(--muted);
+        font-size: 0.86rem;
+        line-height: 1.45;
+      }
+
+      .missions {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 28px;
+      }
+
+      .mission {
+        padding: 25px 0;
+      }
+
+      .mission + .mission {
+        border-top: 1px solid var(--line);
+      }
+
+      .mission-head {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: flex-start;
+        gap: 18px;
+      }
+
+      .mission-chevron:focus-visible {
+        outline: 3px solid rgba(124, 63, 160, 0.3);
+        outline-offset: 3px;
+      }
+
+      .mission.is-open .mission-head {
+        margin-bottom: 14px;
+      }
+
+      .mission-identity {
+        display: flex;
+        min-width: 0;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .client-logo {
+        flex: 0 0 auto;
+        width: 84px;
+        height: 44px;
+        object-fit: contain;
+        object-position: left center;
+      }
+
+      .mission-location {
+        display: block;
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .mission h3 {
+        margin: 0;
+        font-size: 1.08rem;
+      }
+
+      .mission time {
+        color: var(--blue);
+        font-size: 0.83rem;
+        font-weight: 750;
+      }
+
+      .mission-meta {
+        display: flex;
+        min-width: 92px;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 9px;
+        text-align: right;
+      }
+
+      .mission-chevron {
+        padding: 0;
+        width: 34px;
+        height: 30px;
+        display: none;
+        place-items: center;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        color: var(--blue);
+        background: var(--white);
+        cursor: pointer;
+        font: inherit;
+        transition:
+          border-color 160ms ease,
+          background 160ms ease;
+      }
+
+      .mission.is-collapsible .mission-chevron {
+        display: grid;
+      }
+
+      .mission-chevron::before {
+        width: 8px;
+        height: 8px;
+        content: "";
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: translateY(-2px) rotate(45deg);
+        transition: transform 180ms ease;
+      }
+
+      .mission-chevron:hover {
+        border-color: #b78bca;
+        background: var(--pale);
+      }
+
+      .mission.is-open .mission-chevron::before {
+        transform: translateY(2px) rotate(225deg);
+      }
+
+      .blocks {
+        display: grid;
+        gap: 12px;
+      }
+
+      .mission.is-collapsible:not(.is-open) .blocks {
+        display: none;
+      }
+
+      .block {
+        padding: 14px 16px;
+        border-left: 3px solid var(--blue);
+        background: #fcfafd;
+      }
+
+      .block h4 {
+        margin: 0 0 7px;
+        color: var(--blue);
+        font-size: 0.78rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .block p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 0.91rem;
+      }
+
+      .training {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(3, auto);
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px 42px;
+      }
+
+      .course {
+        display: grid;
+        grid-template-columns: 68px 1fr;
+        gap: 12px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .course time {
+        color: var(--blue);
+        font-weight: 800;
+      }
+
+      .course b {
+        display: block;
+        font-size: 0.93rem;
+      }
+
+      .course span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.86rem;
+      }
+
+      .footer {
+        padding: 38px 0;
+        background: #170a2b;
+        color: #eadff3;
+      }
+
+      .footer .shell {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        font-size: 0.9rem;
+      }
+
+      .pdf {
+        display: inline-block;
+        padding: 10px 15px;
+        border: 1px solid #d3b5eb;
+        border-radius: 9px;
+        color: #fff;
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      .pdf:hover {
+        background: rgba(217, 79, 157, 0.14);
+      }
+
+      @media (max-width: 850px) {
+        .skills {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .skill:nth-child(2) {
+          border-right: 0;
+        }
+
+        .skill:nth-child(-n + 2) {
+          border-bottom: 1px solid var(--line);
+        }
+      }
+
+      @media (max-width: 920px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: clamp(1.55rem, 4.2vw, 2rem);
+        }
+
+        .contact-card {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 650px) {
+        .shell {
+          width: min(100% - 30px, 1120px);
+        }
+
+        .desktop-nav {
+          display: none;
+        }
+
+        .mobile-menu {
+          display: block;
+        }
+
+        .hero {
+          padding: 55px 0 45px;
+        }
+
+        .hero-grid,
+        .experience {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-card {
+          width: 100%;
+        }
+
+        .company {
+          display: grid;
+          grid-template-columns: minmax(105px, 132px) minmax(0, 1fr);
+          grid-template-rows: auto auto;
+          align-items: center;
+          column-gap: 24px;
+          row-gap: 8px;
+          padding: 20px;
+        }
+
+        .company-logo {
+          grid-column: 1;
+          grid-row: 1;
+          width: 100%;
+          margin: 0;
+        }
+
+        .company b {
+          grid-column: 1;
+          grid-row: 2;
+        }
+
+        .company span {
+          grid-column: 2;
+          grid-row: 1;
+          justify-self: end;
+          margin-top: 0;
+          text-align: right;
+        }
+
+        .company small {
+          grid-column: 2;
+          grid-row: 2;
+          justify-self: end;
+          margin-top: 0;
+          text-align: right;
+        }
+
+        .missions {
+          padding: 0 20px;
+        }
+
+        .footer .shell {
+          align-items: flex-start;
+          flex-direction: column;
+          gap: 5px;
+        }
+
+        .mission-head {
+          gap: 10px;
+        }
+
+        .mission-identity {
+          align-items: flex-start;
+        }
+
+        .client-logo {
+          width: 68px;
+          height: 38px;
+        }
+
+        .mission-meta {
+          min-width: 74px;
+        }
+
+        .skills,
+        .training {
+          grid-auto-flow: row;
+          grid-template-columns: 1fr;
+          grid-template-rows: none;
+        }
+
+        .skill {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .skill:last-child {
+          border-bottom: 0;
+        }
+
+        .skill:nth-child(2) {
+          border-bottom: 1px solid var(--line);
+        }
+
+        #interets .skills {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        #interets .skill:nth-child(odd) {
+          border-right: 1px solid var(--line);
+        }
+
+        #interets .skill:nth-child(even) {
+          border-right: 0;
+        }
+
+        #interets .skill:nth-child(-n + 2) {
+          border-bottom: 1px solid var(--line);
+        }
+
+        #interets .skill:nth-child(n + 3) {
+          border-bottom: 0;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        .mission-chevron,
+        .mission-chevron::before {
+          transition: none;
+        }
+      }
+
+      @media print {
+        @page {
+          size: A4;
+          margin: 12mm;
+        }
+
+        html {
+          scroll-behavior: auto;
+        }
+
+        body {
+          background: #fff;
+          font-size: 13px;
+          line-height: 1.4;
+          print-color-adjust: exact;
+          -webkit-print-color-adjust: exact;
+        }
+
+        .topbar,
+        .mission-chevron,
+        .pdf {
+          display: none !important;
+        }
+
+        .shell {
+          width: 100%;
+        }
+
+        .hero {
+          padding: 28px 0;
+        }
+
+        .hero-grid {
+          grid-template-columns: minmax(0, 1fr) 290px;
+          gap: 24px;
+        }
+
+        .eyebrow {
+          margin-bottom: 8px;
+          font-size: 0.7rem;
+        }
+
+        h1 {
+          font-size: 1.35rem;
+          line-height: 1.25;
+        }
+
+        .contact-card {
+          width: 290px;
+          grid-template-columns: minmax(0, 1fr) 58px;
+          gap: 10px;
+          padding: 11px;
+          font-size: 0.72rem;
+        }
+
+        .contact-card img {
+          width: 58px;
+          height: 74px;
+        }
+
+        main {
+          padding: 24px 0 30px;
+        }
+
+        section {
+          margin-bottom: 30px;
+        }
+
+        .intro {
+          margin-bottom: 26px;
+        }
+
+        .intro p {
+          font-size: 0.88rem;
+          line-height: 1.45;
+        }
+
+        h2 {
+          margin-bottom: 16px;
+          font-size: 1.4rem;
+          break-after: avoid;
+        }
+
+        .section-kicker {
+          margin-bottom: 7px;
+          font-size: 0.82rem;
+        }
+
+        ul {
+          font-size: 0.82rem;
+        }
+
+        li + li {
+          margin-top: 4px;
+        }
+
+        #competences .skills,
+        #interets .skills {
+          break-inside: avoid;
+        }
+
+        .skill {
+          padding: 16px;
+        }
+
+        .experience {
+          display: block;
+          overflow: visible;
+        }
+
+        .company {
+          display: grid;
+          grid-template-columns: 118px minmax(0, 1fr) auto;
+          grid-template-rows: auto auto;
+          align-items: center;
+          gap: 3px 16px;
+          padding: 13px 18px;
+          break-inside: avoid;
+          break-after: avoid;
+        }
+
+        .company-logo,
+        .company-logo--solutec {
+          grid-column: 1;
+          grid-row: 1 / 3;
+          width: 105px;
+          height: 34px;
+          margin: 0;
+        }
+
+        .company b {
+          grid-column: 2;
+          grid-row: 1;
+          font-size: 1rem;
+        }
+
+        .company span {
+          grid-column: 3;
+          grid-row: 1;
+          margin: 0;
+          text-align: right;
+        }
+
+        .company small {
+          grid-column: 2 / 4;
+          grid-row: 2;
+          margin: 0;
+          font-size: 0.76rem;
+        }
+
+        .missions {
+          display: block;
+          padding: 0 18px;
+        }
+
+        .mission {
+          padding: 16px 0;
+        }
+
+        .mission-head {
+          break-after: avoid;
+        }
+
+        .mission h3 {
+          font-size: 0.96rem;
+        }
+
+        .client-logo {
+          width: 72px;
+          height: 36px;
+        }
+
+        .block {
+          padding: 10px 12px;
+        }
+
+        .block h4 {
+          margin-bottom: 5px;
+          font-size: 0.7rem;
+          break-after: avoid;
+        }
+
+        .mission.is-collapsible:not(.is-open) .blocks {
+          display: grid;
+        }
+
+        .mission-head,
+        .block,
+        .course,
+        .skill {
+          break-inside: avoid;
+        }
+
+        .course {
+          padding: 10px 0;
+        }
+
+        .footer {
+          padding: 20px 0;
+          break-inside: avoid;
+        }
+
+        #interets {
+          break-before: page;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <header class="topbar">
+      <div class="shell">
+        <a class="brand" href="#top">Cyril Gomez</a>
+        <nav class="desktop-nav" aria-label="Navigation principale"><a href="#competences">Compétences</a><a href="#experiences">Expériences</a><a href="#formations">Formations</a></nav>
+        <details class="mobile-menu">
+          <summary>Navigation</summary>
+          <nav aria-label="Navigation mobile"><a href="#competences">Compétences</a><a href="#experiences">Expériences</a><a href="#formations">Formations</a></nav>
+        </details>
+      </div>
+    </header>
+    <section class="hero" id="top">
+      <div class="shell hero-grid">
+        <div>
+          <p class="eyebrow">Consultant IT - Freelance</p>
+          <h1><span class="sr-only">Cyril Gomez — IT Business Analyst. </span>Matérialiser un besoin en application concrète<br />Concevoir une expérience utilisateur agréable<br />Accompagner jusqu'à la mise en production</h1>
+        </div>
+        <aside class="contact-card">
+          <div>
+            <strong>Disponible à partir de janvier 2027</strong><a href="mailto:cyril.gomez13015@gmail.com">cyril.gomez13015@gmail.com</a><a href="tel:+33622534770">06 22 53 47 70</a
+            ><span>Rueil-Malmaison<br />Mobilité : Île-de-France</span>
+          </div>
+          <img src="assets/photo.jpg" alt="Portrait de Cyril Gomez" />
+        </aside>
+      </div>
+    </section>
+    <main class="shell" id="contenu" tabindex="-1">
+      <section class="intro" aria-labelledby="profil-title">
+        <h2 class="section-kicker" id="profil-title">Mon profil</h2>
+        <p>
+          IT Business Analyst au profil hybride, avec 6 ans d'expérience en développement et 4 ans en analyse fonctionnelle et pilotage produit. J'accompagne la conception de parcours digitaux
+          ergonomiques et centrés sur l'utilisateur, en reliant les enjeux métier, l'expérience client et les contraintes techniques. Facilitateur des échanges entre les univers business et technique,
+          je fais de la mise à disposition claire des connaissances et des règles un enjeu principal de mon métier. Convaincu qu'une bonne UX est un ingrédient indispensable de la satisfaction client,
+          je me mets à la place de l'utilisateur final pour élaborer une interface propre et intuitive.
+        </p>
+      </section>
+      <section id="competences">
+        <h2>Compétences</h2>
+        <div class="skills">
+          <article class="skill">
+            <h3>Analyse & produit</h3>
+            <ul>
+              <li>Recueil et formalisation du besoin</li>
+              <li>Spécifications fonctionnelles et techniques</li>
+              <li>Parcours digitaux, UX et maquettage</li>
+              <li>Backlog, User Stories, recette</li>
+            </ul>
+          </article>
+          <article class="skill">
+            <h3>Conception technique</h3>
+            <ul>
+              <li>API REST / Swagger, diagrammes de séquence</li>
+              <li>Java, Angular, Spring MVC</li>
+              <li>SQL / Oracle, Git, Jenkins</li>
+              <li>Kafka et schémas Avro</li>
+            </ul>
+          </article>
+          <article class="skill">
+            <h3>Pilotage & méthodes</h3>
+            <ul>
+              <li>Agile : Scrum, SAFe, Kanban</li>
+              <li>Jira, Confluence, Xray</li>
+              <li>Coordination métier, UX et technique</li>
+              <li>Amélioration continue</li>
+            </ul>
+          </article>
+          <article class="skill">
+            <h3>IA & langues</h3>
+            <ul>
+              <li>GitHub Copilot - Claude, GPT</li>
+              <li>Aide à la rédaction, analyse et code</li>
+              <li>Anglais courant, à réactualiser<br />TOEIC 920</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+      <section id="experiences">
+        <h2>Expériences professionnelles</h2>
+        <div class="timeline">
+          <article class="experience">
+            <aside class="company"><img class="company-logo" src="assets/capgemini.svg" alt="" /><b>Capgemini</b><span>2024 — 2026</span><small>IT Business Analyst</small></aside>
+            <div class="missions">
+              <div class="mission">
+                <div class="mission-head">
+                  <div class="mission-identity"><img class="client-logo" src="assets/credit-agricole-assurances.png" alt="" /><div><h3>Crédit Agricole Assurances — Predica</h3><span class="mission-location">Paris</span></div></div>
+                  <div class="mission-meta"><time datetime="P1Y9M">1 an 9 mois</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Crédit Agricole Assurances"></button></div>
+                </div>
+                <div class="blocks">
+                  <div class="block">
+                    <h4>Contexte fonctionnel</h4>
+                    <ul>
+                      <li>Lancement du parcours d'adhésion Selfcare du nouveau produit d'assurance-vie Oriance.</li>
+                      <li>Élargissement du parcours aux clients LCL, à la gestion sous mandat et au PER.</li>
+                      <li>
+                        Évolution au sein d'une équipe d'une quinzaine de personnes organisée dans un cadre agile SAFe, avec des cérémonies quotidiennes pendant les sprints et trimestrielles lors du
+                        PI Planning.
+                      </li>
+                      <li>Environnement multi-briques dans lequel les API sont réparties entre plusieurs équipes.</li>
+                      <li>Application directement utilisée par les entités distributrices de Crédit Agricole Assurances : CATS et LCL.</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <h4>Activités du poste</h4>
+                    <ul>
+                      <li>Analyse des besoins métier et rédaction des spécifications fonctionnelles et techniques.</li>
+                      <li>Découpage des User Stories techniques à partir de Functional Features orientées produit.</li>
+                      <li>Conception des contrats d'interface OpenAPI, des diagrammes de séquence, des événements Kafka et des schémas Avro, puis mise à disposition des livrables dans Git.</li>
+                      <li>Coordination avec les équipes de pilotage, de cadrage, d'architecture, d'UX et de test.</li>
+                      <li>Suivi des versions et de la phase d'intégration dans le « couloir de livraison ».</li>
+                      <li>Suivi de la recette sur les environnements intégrés et non intégrés aux distributeurs, jusqu'à la prise en compte des retours de production.</li>
+                      <li>
+                        Contribution à l'amélioration continue de la gestion de projet par la création de règles automatisées avec l'IA Rovo intégrée à Jira, de tableaux de bord sur mesure et de vues
+                        avec l'extension Structure.
+                      </li>
+                      <li>Utilisation de l'IA comme aide à la rédaction et à l'analyse, avec création d'agents ciblés, génération de code et test du code généré.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="mission">
+                <div class="mission-head">
+                  <div class="mission-identity"><img class="client-logo" src="assets/BNP-Paribas-logo.png" alt="" /><div><h3>BNP Paribas — BCEF IT</h3><span class="mission-location">Montreuil</span></div></div>
+                  <div class="mission-meta"><time datetime="P3M">3 mois</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission BNP Paribas"></button></div>
+                </div>
+                <div class="blocks">
+                  <div class="block">
+                    <h4>Contexte fonctionnel</h4>
+                    <ul>
+                      <li>Conception d'une application transverse de gestion des activités collaborateur, intégrée à l'écosystème IT de la banque.</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <h4>Activités du poste</h4>
+                    <ul>
+                      <li>Participation aux ateliers de cadrage métier afin de définir la vision cible des fonctionnalités.</li>
+                      <li>Participation aux ateliers d'architecture pour connecter l'application aux autres composants de l'écosystème IT.</li>
+                      <li>
+                        Rédaction de la documentation fonctionnelle dans Confluence et des User Stories dans Jira, en collaboration avec le Product Owner, l'équipe de développement et la cellule UX
+                        Design.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="experience">
+            <aside class="company">
+              <img class="company-logo" src="assets/klee-group.svg" alt="" /><b>Klee Group</b><span>2020 — 2024</span><small>Proxy Product Owner<br />Développeur full stack</small>
+            </aside>
+            <div class="missions">
+              <div class="mission">
+                <div class="mission-head">
+                  <div class="mission-identity"><img class="client-logo" src="assets/Logo-Ministere-de-l-interieur.jpg" alt="" /><div><h3>Ministère de l'Intérieur - Direction du numérique</h3><span class="mission-location">Le Plessis-Robinson</span></div></div>
+                  <div class="mission-meta"><time datetime="P2Y">2 ans</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Direction du numérique"></button></div>
+                </div>
+                <div class="blocks">
+                  <div class="block">
+                    <h4>Contexte fonctionnel</h4>
+                    <ul>
+                      <li>Développement d'une application web de gestion des élections françaises passées et futures à destination des préfectures.</li>
+                      <li>Intervention comme développeur full stack au sein d'une équipe de 20 personnes, en contexte agile.</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <h4>Activités du poste</h4>
+                    <ul>
+                      <li>Développement de l'application entière à partir de zéro (stack technique conçue par les leaders techniques).</li>
+                      <li>Prise en charge du paramétrage des scrutins, de la saisie des candidatures ainsi que du recueil et de la publication des résultats.</li>
+                      <li>Conception de l'écran de choix des bureaux de vote pour les estimations des résultats électoraux, à partir d'une expression de besoin textuelle.</li>
+                      <li>Mentorat de deux développeurs juniors lors de leurs premiers travaux.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="mission">
+                <div class="mission-head">
+                  <div class="mission-identity"><img class="client-logo" src="assets/Logo-Ministere-de-l-interieur.jpg" alt="" /><div><h3>Ministère de l'Intérieur - Délégation à la sécurité routière</h3><span class="mission-location">Le Plessis-Robinson</span></div></div>
+                  <div class="mission-meta"><time datetime="P1Y">1 an</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Délégation à la sécurité routière"></button></div>
+                </div>
+                <div class="blocks">
+                  <div class="block">
+                    <h4>Contexte fonctionnel</h4>
+                    <ul>
+                      <li>Conception d'une application de data visualisation des indicateurs de trafic routier pour le Département du Contrôle Automatisé.</li>
+                      <li>Intervention comme Proxy Product Owner au sein d'une équipe de 8 personnes, en contexte agile.</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <h4>Activités du poste</h4>
+                    <ul>
+                      <li>Conception complète du module de rotation des équipements de terrain : rédaction des User Stories, recette et présentations au client.</li>
+                      <li>Rédaction d'une documentation métier exhaustive, priorisation du backlog selon la méthode Kanban et démonstrations régulières de l'avancement.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="mission">
+                <div class="mission-head">
+                  <div class="mission-identity"><img class="client-logo" src="assets/Logo_cnsa.svg" alt="" /><div><h3>Caisse Nationale de Solidarité pour l'autonomie</h3><span class="mission-location">Le Plessis-Robinson</span></div></div>
+                  <div class="mission-meta"><time datetime="P6M">6 mois</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission CNSA"></button></div>
+                </div>
+                <div class="blocks">
+                  <div class="block">
+                    <h4>Contexte fonctionnel</h4>
+                    <ul>
+                      <li>Création d'une application pour gérer les demandes d'allocations pour l'autonomie des personnes âgées et handicapées.</li>
+                      <li>Intervention comme Proxy Product Owner au sein d'une équipe de 4 personnes, en contexte agile.</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <h4>Activités du poste</h4>
+                    <ul>
+                      <li>Aide à l'expression du besoin et cadrage d'une co-conception avec le client et l'équipe Accessibilité.</li>
+                      <li>Cadrage et validation des User Stories avec l'équipe technique et le client lors d'ateliers de conception.</li>
+                      <li>Transcription dans Figma de la bibliothèque de composants Angular existante.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="experience">
+            <aside class="company"><img class="company-logo company-logo--solutec" src="assets/solutec.png" alt="" /><b>Solutec</b><span>2016 — 2020</span><small>Développeur Windev</small></aside>
+            <div class="missions">
+              <div class="mission">
+                <div class="mission-head">
+                  <div class="mission-identity"><img class="client-logo" src="assets/arval-logo.jpg" alt="" /><div><h3>Arval — BNP Paribas</h3><span class="mission-location">Rueil-Malmaison</span></div></div>
+                  <div class="mission-meta"><time datetime="P4Y">4 ans</time><button class="mission-chevron" type="button" aria-expanded="false" aria-label="Déplier la mission Arval"></button></div>
+                </div>
+                <div class="blocks">
+                  <div class="block">
+                    <h4>Contexte fonctionnel</h4>
+                    <ul>
+                      <li>Logiciel de gestion de flotte automobile et de location longue durée, utilisé par les pays BRIC et LatAm.</li>
+                      <li>Activités réparties entre une équipe de développement et une équipe de tierce maintenance applicative.</li>
+                      <li>Communication en anglais avec les utilisateurs métier des différents pays.</li>
+                    </ul>
+                  </div>
+                  <div class="block">
+                    <h4>Activités du poste</h4>
+                    <ul>
+                      <li>Intervention sur des évolutions du logiciel représentant environ 2 500 jours/homme par an.</li>
+                      <li>Rédaction de spécifications techniques à partir des spécifications fonctionnelles.</li>
+                      <li>Correction d'anomalies dans le cadre de la tierce maintenance applicative, avec suivi dans Quality Center.</li>
+                      <li>Migration de code Windev vers Java.</li>
+                      <li>Mise en place d'indicateurs de performance.</li>
+                      <li>Refonte du système de gestion documentaire et mise en place de l'envoi des documents vers un serveur Alfresco.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+      <section id="formations">
+        <h2>Formations et certifications</h2>
+        <div class="training">
+          <div class="course">
+            <time>2026</time>
+            <div><b>Oser s'exprimer en public, et gagner en aisance à l'oral</b><span>La Défense (Orsys)</span></div>
+          </div>
+          <div class="course">
+            <time>2025</time>
+            <div><b>Exploitez la puissance de l'IA : enjeux, concepts et cas d'usages</b><span>Paris</span></div>
+          </div>
+          <div class="course">
+            <time>2023</time>
+            <div><b>Professional Scrum Product Owner I — 97,5 %</b><span>Orsys, en ligne</span></div>
+          </div>
+          <div class="course">
+            <time>2022</time>
+            <div><b>User eXperience</b><span>Orsys, en ligne</span></div>
+          </div>
+          <div class="course">
+            <time>2011–15</time>
+            <div><b>Diplôme d'ingénieur Arts et Métiers ParisTech (ENSAM)</b><span>Aix-en-Provence</span></div>
+          </div>
+          <div class="course">
+            <time>2009–11</time>
+            <div><b>Classe préparatoire aux Grandes Écoles — PTSI / PT*</b><span>Marseille</span></div>
+          </div>
+        </div>
+      </section>
+      <section id="interets">
+        <h2>Centres d'intérêt</h2>
+        <div class="skills">
+          <article class="skill">
+            <h3>Culture</h3>
+            <ul>
+              <li>Littérature française</li>
+              <li>Histoire de l'Homme</li>
+            </ul>
+          </article>
+          <article class="skill">
+            <h3>Expression artistique</h3>
+            <ul>
+              <li>Danses latines</li>
+              <li>Piano</li>
+            </ul>
+          </article>
+          <article class="skill">
+            <h3>Activités ludiques</h3>
+            <ul>
+              <li>Jeux vidéo</li>
+              <li>Jeu d'échecs</li>
+            </ul>
+          </article>
+          <article class="skill">
+            <h3>Activités sportives</h3>
+            <ul>
+              <li>Musculation</li>
+              <li>Marche</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="shell">
+        <span><b>Cyril Gomez</b> ·
+          <a href="mailto:cyril.gomez13015@gmail.com">cyril.gomez13015@gmail.com</a>
+          · <a href="tel:+33622534770">06 22 53 47 70</a></span>
+        <a class="pdf" href="output/pdf/CV-Cyril-Gomez.pdf" download>Télécharger le CV PDF</a>
+      </div>
+    </footer>
+    <script>
+      document.querySelectorAll(".mission").forEach((mission, index) => {
+        const toggle = mission.querySelector(".mission-chevron");
+        const content = mission.querySelector(".blocks");
+
+        if (!toggle || !content) return;
+
+        const contentId = `mission-details-${index + 1}`;
+
+        content.id = contentId;
+        toggle.setAttribute("aria-controls", contentId);
+        mission.classList.add("is-collapsible");
+
+        toggle.addEventListener("click", () => {
+          const isOpen = mission.classList.toggle("is-open");
+          const label = toggle.getAttribute("aria-label").replace(/^(Déplier|Replier)/, isOpen ? "Replier" : "Déplier");
+
+          toggle.setAttribute("aria-expanded", String(isOpen));
+          toggle.setAttribute("aria-label", label);
+        });
+      });
+
+      document.querySelectorAll(".mobile-menu a").forEach((link) => {
+        link.addEventListener("click", () => link.closest("details").removeAttribute("open"));
+      });
+    </script>
+  </body>
 </html>
